@@ -6,18 +6,85 @@ function getComputerChoice(){
     let generate = getRandomInt();
 
     if (generate == 0)
-        return "rock";
+        return "ROCK";
     else if (generate == 1)
-        return "paper";
+        return "PAPER";
     else
-        return "scissors";
+        return "SCISSORS";
 }
 
-let humanChoice;
+function getHumanChoice(){
+    return prompt("Enter rock, paper, or scissors");
+}
 
-do {
-  humanChoice = prompt("Enter rock, paper, or scissors").toUpperCase();
-} while (humanChoice !== "ROCK" && humanChoice !== "PAPER" && humanChoice !== "SCISSORS");
+function playRound(humanChoice, computerChoice){
+    if (humanChoice == computerChoice)
+        console.log("It's a draw!")
+        return "Draw";
+
+    if (humanChoice == "ROCK"){
+        if (computerChoice == "PAPER"){
+            console.log("You lose! Paper beats Rock.");
+            computerScore++;
+            return "Computer";
+        }
+
+        else{
+            console.log("You win! Rock beats Scissors.");
+            humanScore++;
+            return "Human";
+        }
+
+    }
+
+    if (humanChoice == "PAPER"){
+        if (computerChoice == "SCISSORS"){
+            console.log("You lose! Scissors beats Paper.");
+            computerScore++;     
+            return "Computer";       
+        }
+
+        else{
+            console.log("You win! Paper beats Rock.");
+            humanScore++;
+            return "Human";
+        }
+
+    }
+
+    if (humanChoice == "SCISSORS"){
+        if (computerChoice == "ROCK"){
+            console.log("You lose! Rocks beats Scissors.");
+            computerScore++;
+            return "Computer";
+        }
+
+        else {
+            console.log("You win! Scissors beats Paper.");
+            humanScore++;
+            return "Human";
+        }
+    }
+}
+
+function playGame(){
+    for (int i=0; i<5; i++){
+        playRound(humanChoice, computerChoice);
+    }
+    if (humanScore == computerScore)
+        console.log("It's a draw! Both scores are tied.");
+    if (humanScore > computerScore)
+        console.log("You win! You scored more than the computer.");
+    else 
+        console.log("You lose! The computer scored more than you.");
+}
+
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+let humanScore = 0;
+let computerScore = 0;
+playGame();
+
 
 
 // getComputerChoice that randomly returns rock, paper, or scissors

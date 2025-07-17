@@ -11,16 +11,18 @@ function getComputerChoice(){
         return "PAPER";
     else
         return "SCISSORS";
+
 }
 
 function getHumanChoice(){
-    return prompt("Enter rock, paper, or scissors");
+    return prompt("Enter rock, paper, or scissors").toUpperCase();
 }
 
 function playRound(humanChoice, computerChoice){
-    if (humanChoice == computerChoice)
+    if (humanChoice == computerChoice){
         console.log("It's a draw!")
         return "Draw";
+    }
 
     if (humanChoice == "ROCK"){
         if (computerChoice == "PAPER"){
@@ -69,18 +71,18 @@ function playRound(humanChoice, computerChoice){
 
 function playGame(){
     for (let i=0; i<5; i++){
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
     }
     if (humanScore == computerScore)
         console.log("It's a draw! Both scores are tied.");
-    if (humanScore > computerScore)
+    else if (humanScore > computerScore)
         console.log("You win! You scored more than the computer.");
     else 
         console.log("You lose! The computer scored more than you.");
 }
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
 let humanScore = 0;
 let computerScore = 0;
 playGame();

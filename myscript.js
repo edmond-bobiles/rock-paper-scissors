@@ -68,7 +68,7 @@ function playRound(humanChoice, computerChoice){
 }
 
 function playGame(){
-    for (int i=0; i<5; i++){
+    for (let i=0; i<5; i++){
         playRound(humanChoice, computerChoice);
     }
     if (humanScore == computerScore)

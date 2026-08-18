@@ -3,10 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="myscript.js"></script>
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="myscript.js" defer></script>
+    <title>Rock Paper Scissors</title>
 </head>
-<body>
-    
+<body class="min-h-screen bg-slate-100 flex flex-col items-center justify-center gap-6 font-sans">
+
+    <h1 class="text-3xl font-bold text-slate-800">Rock, Paper, Scissors</h1>
+
+    <div id="prompt" class="text-lg text-slate-600"></div>
+
+    <div class="button-container flex gap-4">
+        <button class="rock px-6 py-3 bg-yellow-400 hover:bg-yellow-500 active:scale-95 rounded-lg font-semibold shadow transition">
+            Rock
+        </button>
+        <button class="paper px-6 py-3 bg-blue-400 hover:bg-blue-500 active:scale-95 rounded-lg font-semibold shadow transition">
+            Paper
+        </button>
+        <button class="scissors px-6 py-3 bg-red-400 hover:bg-red-500 active:scale-95 rounded-lg font-semibold shadow transition">
+            Scissors
+        </button>
+        <button id="reset" class="px-6 py-3 bg-slate-300 hover:bg-slate-400 active:scale-95 rounded-lg font-semibold shadow transition">
+            Reset Game
+        </button>
+    </div>
+
+    <div id="result-container" class="mt-4 bg-white rounded-xl shadow p-6 w-80 text-center space-y-2">
+        <!-- 
+        Results
+        Winner
+        Score
+         -->
+    </div>
+
 </body>
 </html>
